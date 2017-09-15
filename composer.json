@@ -1,14 +1,13 @@
 {
-  "name": "rsiripong\juidatepicker",
+  "name": "rsiripong/yii2-juidatepicker",
   "description": "Yii 2 jQuery UI Date Picker Widget",
   "keywords": ["yii2", "jquery", "jquery-ui", "date", "picker"],
-  "homepage": "http://jqueryui.com/datepicker/",
   "type": "yii2-extension",
   "license": "MIT",
   "authors": [
     {
       "name": "siripong rungsang",
-      "email": "siripong.rungsang@gmail.com"
+            "email": "siripong.rungsang@gmail.com"
     }
   ],
   "require": {
