@@ -36,6 +36,7 @@ class JuiDatePicker extends InputWidget
     public $ignoreReadonly = false;
     
     public $disableAlt = false;
+	public $disableClear = false;
 
     public function init()
     {
@@ -90,8 +91,13 @@ class JuiDatePicker extends InputWidget
             $output = "<div class=\"date input-group\">";
             $output .= ((!$this->disableAlt) ? Html::activeTextInput($this->model, $this->attribute, $altOptions) : null);
             
-            $output.= "<span class='input-group-btn' ><button type='button' class='btn-secondary btn ht-remove' ref='".$inputId."' >".
-                    "<span class=\"glyphicon glyphicon-remove\"></span></button></span>";
+            $output.= "<span class='input-group-btn' >";
+			
+			if(!$this->disableClear){
+			$output.= "<button type='button' class='btn-secondary btn ht-remove' ref='".$inputId."' >".
+                    "<span class=\"glyphicon glyphicon-remove\"></span></button>";
+					}
+			$output.= "</span>";
             $output .= Html::activeHiddenInput($this->model, $this->attribute, $this->options);
             $output .= "</div>";
             
@@ -99,8 +105,12 @@ class JuiDatePicker extends InputWidget
             $altOptions['class'] = 'form-control dalternate';
              $output = "<div class=\"date input-group\">";
             $output .= ((!$this->disableAlt) ?Html::textInput($altInputId, $this->value, $altOptions) : null);
-            $output.= "<span class='input-group-btn' ><button type='button' class='btn-secondary btn ht-remove' ref='".$inputId."' >".
-                    "<span class=\"glyphicon glyphicon-remove\"></span></button></span>";
+            $output.= "<span class='input-group-btn' >";
+			if(!$this->disableClear){
+			$output.= "<button type='button' class='btn-secondary btn ht-remove' ref='".$inputId."' >".
+                    "<span class=\"glyphicon glyphicon-remove\"></span></button>";
+					}
+			$output.= "</span>";
             $output .= Html::hiddenInput($this->name, $this->value, $this->options);
              $output .= "</div>";
         }
